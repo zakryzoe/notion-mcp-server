@@ -1,0 +1,19 @@
+{
+  "servers": {
+    "notionApi": {
+      "type": "http",
+      "url": "http://localhost:3001/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:notion-mcp-auth-token}"
+      }
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "notion-mcp-auth-token",
+      "description": "Notion MCP Server Auth Token (check docker logs for the generated token)",
+      "password": true
+    }
+  ]
+}

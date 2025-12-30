@@ -1,0 +1,14 @@
+services:
+  notion-mcp-server:
+    build: .
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+    environment:
+      - NOTION_TOKEN=${NOTION_TOKEN}
+      - PORT=${PORT:-3000}
+    env_file:
+      - .env
+    command: ["--transport", "http", "--port", "${PORT:-3000}"]
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
